@@ -3,7 +3,7 @@
 
 This application is built to support a simple bank ledger system that utilizes the [EVENT SOURCING](https://martinfowler.com/eaaDev/EventSourcing.html) pattern to maintain a transaction history. We've implemented the event sourcing pattern to record all banking transactions as immutable events. Each event captures relevant information such as transaction type, amount, timestamp, and account identifier.
 
-We are use a SERVICE TO SCHEMA file named service.yml to load API request and response schema as well the necessary modelsof the load and remove API's
+We are use a <code style="color : green">SERVICE TO SCHEMA</code> file named service.yml to load API request and response schema as well the necessary modelsof the load and remove API's
 
 
 ## Testing:
