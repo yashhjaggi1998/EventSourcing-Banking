@@ -1,17 +1,17 @@
-## Overview
+# Overview
 ===============================
 
-This application is built to support a simple bank ledger system that utilizes the [event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) pattern to maintain a transaction history. We've implemented the event sourcing pattern to record all banking transactions as immutable events. Each event captures relevant information such as transaction type, amount, timestamp, and account identifier.
+This application is built to support a simple bank ledger system that utilizes the [EVENT SOURCING](https://martinfowler.com/eaaDev/EventSourcing.html) pattern to maintain a transaction history. We've implemented the event sourcing pattern to record all banking transactions as immutable events. Each event captures relevant information such as transaction type, amount, timestamp, and account identifier.
 
-We are use a service to schema file named service.yml to load API request and response schema as well the necessary modelsof the load and remove API's
+We are use a SERVICE TO SCHEMA file named service.yml to load API request and response schema as well the necessary modelsof the load and remove API's
 
 
-# Testing:
+## Testing:
 
 All the unit, integration and end-to-end test cases are covered in the test folder.
 
 ************************************************************************************
-# Local Run instructions are as follows:
+## Local Run instructions are as follows:
 
 1) Load the project in the latest intellij IDE.
 2) Install Java jdk 17 or above if not already installed.
