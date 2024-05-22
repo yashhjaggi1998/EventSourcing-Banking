@@ -1,0 +1,133 @@
+AUTHORIZATION API Unit Tests:
+
+1) Empty User: 
+
+Input
+{
+    "messageId": "1",
+    "userId": "",
+    "transactionAmount": {
+        "amount": "50.01",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "message": "The user account you are trying to remove funds from does not exist.",
+    "code": "USER NOT FOUND: "
+}
+
+2) Invalid Debit or Credit Operation: 
+
+Input
+{
+    "messageId": "1",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "50.01",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+Output
+{
+    "message": "To Remove the funds, operation specified must be DEBIT. The operation specified was CREDIT.",
+    "code": "INVALID OPERATION: CREDIT"
+}
+
+3) Invalid Currency
+
+Input
+{
+    "messageId": "1",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "50.01",
+        "currency": "US",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "message": "Removing funds is only supported in USD currency.",
+    "code": "CURRENCY UNSUPPORTED"
+}
+
+4) Negative Transaction Amount - Edge Case
+
+Input
+{
+    "messageId": "1",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "-50.0",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "userId": "user1",
+    "messageId": "1",
+    "responseCode": "DECLINED",
+    "balance": {
+        "amount": "0",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+5) Insufficient Funds - Edge Case
+
+Input
+{
+    "messageId": "1",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "50.0",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "userId": "user1",
+    "messageId": "1",
+    "responseCode": "DECLINED",
+    "balance": {
+        "amount": "0",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+6) Successful Load Operation
+
+Input
+{
+    "messageId": "1",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "50.0",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "userId": "user1",
+    "messageId": "1",
+    "responseCode": "APPROVED",
+    "balance": {
+        "amount": "0.01",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}

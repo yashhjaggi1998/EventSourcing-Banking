@@ -1,0 +1,113 @@
+LOAD 20 WITH WRONG CURRENCY
+
+Input
+{
+    "messageId": "1",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "20",
+        "currency": "US",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+Output
+{
+    "message": "Adding of funds is only supported in USD currency.",
+    "code": "CURRENCY UNSUPPORTED"
+}
+
+AUTHORIZATION 50.49
+
+
+Input
+{
+    "messageId": "2",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "50.49",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "userId": "user1",
+    "messageId": "2",
+    "responseCode": "DECLINED",
+    "balance": {
+        "amount": "0",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+LOAD 20.1
+
+Input
+{
+    "messageId": "3",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "20.1",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+Output
+{
+    "responseCode": "APPROVED",
+    "userId": "user1",
+    "messageId": "3",
+    "balance": {
+        "amount": "20.1",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+AUTHORIZATION 20.1 with wrong currency
+
+Input
+{
+    "messageId": "4",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "50.49",
+        "currency": "US",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "message": "Removing funds is only supported in USD currency.",
+    "code": "CURRENCY UNSUPPORTED"
+}
+
+AUTHORIZATION 20.1
+
+Input
+{
+    "messageId": "5",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "20.1",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "userId": "user1",
+    "messageId": "5",
+    "responseCode": "APPROVED",
+    "balance": {
+        "amount": "0.0",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}

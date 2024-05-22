@@ -1,0 +1,101 @@
+EDGE CASE: JAVA FLoat POINT PRECISION ERROR
+
+LOAD 100
+
+Input
+{
+    "messageId": "1",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "100",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+Output
+{
+    "responseCode": "APPROVED",
+    "userId": "user1",
+    "messageId": "1",
+    "balance": {
+        "amount": "100.0",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+LOAD 3.23
+
+Input
+{
+    "messageId": "2",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "3.23",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+Output
+{
+    "responseCode": "APPROVED",
+    "userId": "user1",
+    "messageId": "2",
+    "balance": {
+        "amount": "103.23",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+AUTHORIZATION 100
+
+Input
+{
+    "messageId": "3",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "100",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "userId": "user1",
+    "messageId": "3",
+    "responseCode": "APPROVED",
+    "balance": {
+        "amount": "3.23",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+AUTHORIZATION 3.23
+
+Input
+{
+    "messageId": "4",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "3.23",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "userId": "user1",
+    "messageId": "4",
+    "responseCode": "APPROVED",
+    "balance": {
+        "amount": "0.00",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}

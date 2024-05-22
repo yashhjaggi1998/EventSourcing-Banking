@@ -1,0 +1,101 @@
+1) Smooth Operation
+
+LOAD 100
+
+Input
+{
+    "messageId": "1",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "100",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+Output
+{
+    "responseCode": "APPROVED",
+    "userId": "user1",
+    "messageId": "1",
+    "balance": {
+        "amount": "100",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+LOAD 20
+
+Input
+{
+    "messageId": "2",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "20",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+Output
+{
+    "responseCode": "APPROVED",
+    "userId": "user1",
+    "messageId": "2",
+    "balance": {
+        "amount": "120",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+AUTHORIZATION 119.9
+
+Input
+{
+    "messageId": "3",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "119.9",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "userId": "user1",
+    "messageId": "3",
+    "responseCode": "APPROVED",
+    "balance": {
+        "amount": "0.1",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+AUTHORIZATION 0.2
+
+Input
+{
+    "messageId": "4",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "0.2",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+Output
+{
+    "userId": "user1",
+    "messageId": "4",
+    "responseCode": "DECLINED",
+    "balance": {
+        "amount": "0.1",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}

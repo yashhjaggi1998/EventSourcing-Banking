@@ -1,0 +1,95 @@
+END TO END TEST CASES
+
+{
+  "messageId": "1",
+  "userId": "user1",
+  "transactionAmount": {
+    "amount": "100",
+    "currency": "USD",
+    "debitOrCredit": "CREDIT"
+  }
+}
+
+Load 
+
+{
+  "messageId": "2",
+  "userId": "user1",
+  "transactionAmount": {
+    "amount": "3.23",
+    "currency": "USD",
+    "debitOrCredit": "CREDIT"
+  }
+}
+
+Authorization
+
+{
+  "messageId": "3",
+  "userId": "user1",
+  "transactionAmount": {
+      "amount": "100",
+      "currency": "USD",
+      "debitOrCredit": "DEBIT"
+  }
+}
+
+Authorization
+
+{
+  "messageId": "4",
+  "userId": "user1",
+  "transactionAmount": {
+      "amount": "10",
+      "currency": "USD",
+      "debitOrCredit": "DEBIT"
+  }
+}
+
+Authorization
+
+{
+  "messageId": "5",
+  "userId": "user2",
+  "transactionAmount": {
+      "amount": "50.01",
+      "currency": "USD",
+      "debitOrCredit": "DEBIT"
+  }
+}
+
+Load 
+
+{
+  "messageId": "6",
+  "userId": "user2",
+  "transactionAmount": {
+    "amount": "50.01",
+    "currency": "USD",
+    "debitOrCredit": "CREDIT"
+  }
+}
+
+Authorization
+
+{
+  "messageId": "7",
+  "userId": "user2",
+  "transactionAmount": {
+      "amount": "50.02",
+      "currency": "USD",
+      "debitOrCredit": "DEBIT"
+  }
+}
+
+Authorization
+
+{
+  "messageId": "8",
+  "userId": "user2",
+  "transactionAmount": {
+      "amount": "50.01",
+      "currency": "USD",
+      "debitOrCredit": "DEBIT"
+  }
+}

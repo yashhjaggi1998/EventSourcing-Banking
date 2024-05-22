@@ -1,0 +1,125 @@
+2) Authorization with 0 balance
+
+AUTHORIZATION 100.45
+
+{
+    "messageId": "1",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "100.45",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+{
+    "userId": "user1",
+    "messageId": "1",
+    "responseCode": "DECLINED",
+    "balance": {
+        "amount": "0",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+LOAD 20 WITH NO USER
+
+{
+    "messageId": "2",
+    "userId": "",
+    "transactionAmount": {
+        "amount": "20",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+{
+    "message": "Cannot load funds since no user is mentioned.",
+    "code": "EMPTY USER"
+}
+
+LOAD 20 
+
+{
+    "messageId": "3",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "20",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+{
+    "responseCode": "APPROVED",
+    "userId": "user1",
+    "messageId": "3",
+    "balance": {
+        "amount": "20",
+        "currency": "USD",
+        "debitOrCredit": "CREDIT"
+    }
+}
+
+AUTHORIZATION 21.5
+{
+    "messageId": "4",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "21.5",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+{
+    "userId": "user1",
+    "messageId": "4",
+    "responseCode": "DECLINED",
+    "balance": {
+        "amount": "20",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+AUTHORIZATION 20.1
+
+{
+    "messageId": "5",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "20.1",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+{
+    "userId": "user1",
+    "messageId": "5",
+    "responseCode": "DECLINED",
+    "balance": {
+        "amount": "20",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+
+AUTHORIZATION 19.9
+{
+    "messageId": "6",
+    "userId": "user1",
+    "transactionAmount": {
+        "amount": "19.9",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
+{
+    "userId": "user1",
+    "messageId": "6",
+    "responseCode": "APPROVED",
+    "balance": {
+        "amount": "0.1",
+        "currency": "USD",
+        "debitOrCredit": "DEBIT"
+    }
+}
