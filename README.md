@@ -1,5 +1,3 @@
-**Important: Don't forget to update the [Candidate README](#candidate-readme) section**
-
 Real-time Transaction Challenge
 ===============================
 ## Overview
@@ -41,11 +39,7 @@ Here’s a breakdown of the key criteria we’ll be considering when grading you
 
 **Documentation and Clarity:** We’ll assess the clarity of your documentation, including comments within the code, README files, architectural diagrams, and explanations of design decisions. Your documentation should provide sufficient context for reviewers to understand the problem, solution, and implementation details.
 
-# Candidate README
-
-## Bootstrap instructions
-
-Local Run instructions are as follows:
+# Local Run instructions are as follows:
 
 1) Load the project in the latest intellij IDE.
 2) Install Java jdk 17 or above if not already installed.
@@ -79,13 +73,3 @@ Local Run instructions are as follows:
 3) Connect to the database and ensure the connectivity works.
 4) Configure load balancers to deal with high number of requests.
 5) Implement basic authorization or OZAuth authorization to restrict access to only authorized users.
-
-## License
-
-At CodeScreen, we strongly value the integrity and privacy of our assessments. As a result, this repository is under exclusive copyright, which means you **do not** have permission to share your solution to this test publicly (i.e., inside a public GitHub/GitLab repo, on Reddit, etc.). <br>
-
-## Submitting your solution
-
-Please push your changes to the `main branch` of this repository. You can push one or more commits. <br>
-
-Once you are finished with the task, please click the `Submit Solution` link on <a href="https://app.codescreen.com/candidate/9febc8e8-5be4-4969-9df1-31f417090a41" target="_blank">this screen</a>.
